@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FourPaws - Pet Adoption Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        secondary: '#93C5FD',
+                        accent: '#3B82F6',
+                        light: '#EFF6FF',
+                        dark: '#1E40AF'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+    
+        .hero-bg {
+            background-image: linear-gradient(rgba(29, 78, 216, 0.8), rgba(147, 197, 253, 0.8));
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Card hover effect */
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-paw text-blue-500 text-3xl"></i>
+                <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+            </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a>
+                <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 pt-2 pb-4" id="mobile-menu">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
+            <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-500">About Us</a>
+            <a href="adopt.html" class="block py-2 text-gray-700 hover:text-blue-500">Adopt</a>
+            <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-500">Contact</a>
+            <a href="login.html" class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</a>
+        </div>
+    </header>
+<!-- Hero Section -->
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-r from-blue-600 to-purple-400 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 right-0 bottom-0 left-0 bg-[url('https://images.ctfassets.net/sfnkq8lmu5d7/3SaMLVsRvPJ3hhJK0ZoFAr/343bc29ab67af19c8798a133a6be5b19/Hero_-_Teaching_Your_Dog_to_Take_Treats_Gently.jpg')] bg-cover bg-center opacity-20"></div>
+            <div class="absolute inset-0 bg-gradient-to from-blue-900/10 to-purple-800/10"></div>
+        </div>
+        <div class="container mx-auto px-4 py-24 md:py-32 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Find Your New <span class="text-blue-200">Best Friend</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">Give a homeless pet the love and care they deserve in your forever home</p>
+            <div class="space-x-4">
+                <a href="#available-pets" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold shadow-lg transition duration-300">
+                    Adopt Now
+                </a>
+                <a href="#" class="inline-block border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full font-semibold transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/20 to-transparent"></div>
+    </div>
+
+    <!-- Available Pets Section -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-blue-800 mb-2">Available Pets</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">These lovely companions are currently looking for their forever homes. Click on any pet to learn more.</p>
+        </div>
+        
+        <!-- Pets Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Pet Card 1 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://cdn.britannica.com/82/232782-050-8062ACFA/Black-labrador-retriever-dog.jpg" 
+                     alt="Lily the Black Labrador" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Lily</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 4</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-venus text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Female</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Black Labrador</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+            
+            <!-- Pet Card 2 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://www.borrowmydoggy.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4ij0poqn%2Fproduction%2Fda89d930fc320dd912a2a25487b9ca86b37fcdd6-800x600.jpg&w=1080&q=80" 
+                     alt="Hero the Golden Retriever" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Hero</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 2</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mars text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Male</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Golden Retriever</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+            
+            <!-- Pet Card 3 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/14/2024/11/WXJC23.jpg" 
+                     alt="Daisy the Dalmatian" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Daisy</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 3</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-venus text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Female</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Dalmatian</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+            
+            <!-- Pet Card 4 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://cdn.royalcanin-weshare-online.io/_VbTMXwBBKJuub5q9r9X/v3/bp-lot-3-jack-russel-terrier-couleur-outdoor" 
+                     alt="Spidey the Jack Terrier" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Spidey</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 4</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mars text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Male</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Jack Terrier</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+            
+            <!-- Pet Card 5 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://cdn0.onehowto.com/en/posts/3/3/5/what_to_do_if_you_can_t_figure_out_if_your_dog_is_purebred_12533_4_600.jpg" 
+                     alt="Hulk the Pitbull" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Hulk</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 5</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mars text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Male</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Pitbull</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+            
+            <!-- Pet Card 6 -->
+            <div class="pet-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:cursor-pointer">
+                <img src="https://www.allthingsdogs.com/wp-content/uploads/2020/04/Labradoodle.jpg" 
+                     alt="Lady the Doodle" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Lady</h3>
+                    <div class="space-y-2 text-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-birthday-cake text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Age:</span> 9</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-venus text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Gender:</span> Female</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-paw text-blue-500 mr-2"></i>
+                            <span><span class="font-medium">Breed:</span> Labradoodle</span>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Process Section -->
+    <section class="bg-blue-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Our Adoption Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-700">1. Find Your Match</h3>
+                    <p class="text-gray-600">Browse our available pets and find one that fits your lifestyle and personality.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-700">2. Submit Application</h3>
+                    <p class="text-gray-600">Complete our adoption application form and tell us about your home environment.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-700">3. Welcome Home</h3>
+                    <p class="text-gray-600">If approved, finalize the adoption and bring your new family member home!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+       
+</body>
+ <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">FourPaws</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Providing loving homes for pets in need since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-blue-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-blue-500 transition">About Us</a></li>
+                        <li><a href="adopt.html" class="text-gray-400 hover:text-blue-500 transition">Adopt a Pet</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-500 transition">Contact</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-blue-500 transition">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>123 Pet Avenue, City, Country</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
+                            <span>hello@fourpaws.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
+                            <span>Mon-Sat: 9am - 5pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on pets available for adoption and upcoming events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 FourPaws Pet Adoption Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</html>
