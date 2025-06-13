@@ -1,224 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FourPaws - Pet Adoption Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-        <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1D4ED8',
-                        secondary: '#93C5FD',
-                        accent: '#3B82F6',
-                        light: '#EFF6FF',
-                        dark: '#1E40AF'
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                    }
-                }
-            }
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link  href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <linkrel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1D4ED8",
+              secondary: "#93C5FD",
+              accent: "#3B82F6",
+              light: "#EFF6FF",
+              dark: "#1E40AF",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
-    
-        .hero-bg {
-            background-image: linear-gradient(rgba(29, 78, 216, 0.8), rgba(147, 197, 253, 0.8));
-            background-size: cover;
-            background-position: center;
-        }
-        
-        /* Card hover effect */
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .login-card {
-            box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-        .login-card:hover {
-            box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.4);
-        }
-        .input-field:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
-        .btn-hover:hover {
-            transform: translateY(-2px);
-        }
+      .hero-bg {
+        background-image: linear-gradient(
+          rgba(29, 78, 216, 0.8),
+          rgba(147, 197, 253, 0.8)
+        );
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Card hover effect */
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .login-card {
+        box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+      .login-card:hover {
+        box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.4);
+      }
+      .input-field:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+      }
+      .btn-hover:hover {
+        transform: translateY(-2px);
+      }
     </style>
-</head>
-<body class="bg-gray-50">
+  </head>
+  <body>
     <!-- Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-paw text-blue-500 text-3xl"></i>
-                <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
-            </div>
-
-            <input type="checkbox" id="menu-toggle" class="hidden">
-            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
-                <i class="fas fa-bars"></i>
-            </label>
-
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a>
-                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition">About Us</a>
-                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Adopt</a>
-                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a>
-                <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
-            </nav>
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-paw text-blue-500 text-3xl"></i>
+          <a
+            href="index.html"
+            class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition"
+            >FourPaws</a
+          >
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white w-full px-4 pt-2 pb-4" id="mobile-menu">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
-            <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-500">About Us</a>
-            <a href="adopt.html" class="block py-2 text-gray-700 hover:text-blue-500">Adopt</a>
-            <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-500">Contact</a>
-            <a href="login.html" class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</a>
-        </div>
+        <input type="checkbox" id="menu-toggle" class="hidden" />
+        <label
+          for="menu-toggle"
+          class="md:hidden cursor-pointer text-gray-700 text-2xl"
+        >
+          <i class="fas fa-bars"></i>
+        </label>
+
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:text-blue-500 font-medium transition"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-gray-700 hover:text-blue-500 font-medium transition"
+            >About Us</a
+          >
+          <a
+            href="adopt.html"
+            class="text-gray-700 hover:text-blue-500 font-medium transition"
+            >Adopt</a
+          >
+          <a
+            href="contact.html"
+            class="text-gray-700 hover:text-blue-500 font-medium transition"
+            >Contact</a
+          >
+          <a
+            href="login.html"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+            >Login</a
+          >
+        </nav>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-white w-full px-4 pt-2 pb-4"
+        id="mobile-menu"
+      >
+        <a
+          href="index.html"
+          class="block py-2 text-gray-700 hover:text-blue-500"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="block py-2 text-gray-700 hover:text-blue-500"
+          >About Us</a
+        >
+        <a
+          href="adopt.html"
+          class="block py-2 text-gray-700 hover:text-blue-500"
+          >Adopt</a
+        >
+        <a
+          href="contact.html"
+          class="block py-2 text-gray-700 hover:text-blue-500"
+          >Contact</a
+        >
+        <a
+          href="login.html"
+          class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          >Login</a
+        >
+      </div>
     </header>
 
-<!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center">
-        <!-- Image Section -->
-        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 flex justify-center">
-            <img src="https://t3.ftcdn.net/jpg/07/70/78/24/360_F_770782457_vWGitKp7k9nzaRRXMxCvNFQN28cPpuTu.jpg" 
-                 alt="Happy dog" 
-                 class="rounded-xl shadow-xl w-full max-w-lg object-cover h-96 md:h-auto transition duration-500 hover:scale-105">
-        </div>
-        
-        <!-- Login Form -->
-        <div class="md:w-1/2 w-full max-w-md">
-            <div class="bg-white rounded-2xl p-8 login-card">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-blue-600 mb-2">Welcome Back!</h2>
-                    <p class="text-gray-600">Login to your FourPaws account</p>
+    <!-- Main Content -->
+    <main
+      class="container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center"
+    >
+      <!-- Image Section -->
+      <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 flex justify-center">
+        <img
+          src="https://t3.ftcdn.net/jpg/07/70/78/24/360_F_770782457_vWGitKp7k9nzaRRXMxCvNFQN28cPpuTu.jpg"
+          alt="Happy dog"
+          class="rounded-xl shadow-xl w-full max-w-lg object-cover h-96 md:h-auto transition duration-500 hover:scale-105"
+        />
+      </div>
+
+      <!-- Login Form -->
+      <div class="md:w-1/2 w-full max-w-md">
+        <div class="bg-white rounded-2xl p-8 login-card">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-blue-600 mb-2">Welcome Back!</h2>
+            <p class="text-gray-600">Login to your FourPaws account</p>
+          </div>
+
+          <form>
+            <div class="mb-6">
+              <label for="email" class="block text-gray-700 font-medium mb-2"
+                >Email Address</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-envelope text-blue-400"></i>
                 </div>
-                
-                <form>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-envelope text-blue-400"></i>
-                            </div>
-                            <input type="email" id="email" 
-                                   class="pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none input-field transition"
-                                   placeholder="your@email.com">
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-lock text-blue-400"></i>
-                            </div>
-                            <input type="password" id="password" 
-                                   class="pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none input-field transition"
-                                   placeholder="••••••••">
-                        </div>
-                       
-                    </div>
-                    
-                    <button type="submit" 
-                            class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition btn-hover shadow-md">
-                        Login to your account
-                    </button>
-                    
-                    <div class="flex items-center my-6">
-                        <div class="flex-grow border-t border-gray-300"></div>
-                        <span class="px-4 text-gray-500">or</span>
-                        <div class="flex-grow border-t border-gray-300"></div>
-                    </div>
-                </form>
-                
-                <p class="text-center text-gray-600 mt-6">
-                    Don't have an account? 
-                    <a href="signup.html" class="text-blue-600 font-medium hover:text-blue-800 transition">Sign up</a>
-                </p>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  class="pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none input-field transition"
+                  placeholder="your@email.com"
+                />
+              </div>
             </div>
+
+            <div class="mb-6">
+              <label for="password" class="block text-gray-700 font-medium mb-2"
+                >Password</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-lock text-blue-400"></i>
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  class="pl-10 w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none input-field transition"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onclick="login()"
+              class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition btn-hover shadow-md"
+            >
+              Login to your account
+            </button>
+
+            <p id="message" class="w-full text-center mt-4 font-medium text-sm"></p>
+
+            <div class="flex items-center my-6">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <span class="px-4 text-gray-500">or</span>
+              <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+          </form>
+
+          <p class="text-center text-gray-600 mt-6">
+            Don't have an account?
+            <a
+              href="signup.html"
+              class="text-blue-600 font-medium hover:text-blue-800 transition"
+              >Sign up</a
+            >
+          </p>
         </div>
+      </div>
+      <div class="message" id="loginMessage"></div>
     </main>
-    <body>
-        <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- About -->
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold">FourPaws</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Providing loving homes for pets in need since 2010.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-blue-500 transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-blue-500 transition">About Us</a></li>
-                        <li><a href="adopt.html" class="text-gray-400 hover:text-blue-500 transition">Adopt a Pet</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-500 transition">Contact</a></li>
-                        <li><a href="login.html" class="text-gray-400 hover:text-blue-500 transition">Login</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
-                            <span>123 Pet Avenue, City, Country</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
-                            <span>+1 (555) 123-4567</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
-                            <span>hello@fourpaws.org</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
-                            <span>Mon-Sat: 9am - 5pm</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Newsletter -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">Subscribe to get updates on pets available for adoption and upcoming events.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 FourPaws Pet Adoption Center. All rights reserved.</p>
-            </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- About -->
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
+            <span class="text-xl font-bold">FourPaws</span>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Providing loving homes for pets in need since 2010.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-blue-500 transition"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-blue-500 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-blue-500 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-blue-500 transition"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
         </div>
-    </footer>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="index.html"
+                class="text-gray-400 hover:text-blue-500 transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="about.html"
+                class="text-gray-400 hover:text-blue-500 transition"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="adopt.html"
+                class="text-gray-400 hover:text-blue-500 transition"
+                >Adopt a Pet</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="text-gray-400 hover:text-blue-500 transition"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="login.html"
+                class="text-gray-400 hover:text-blue-500 transition"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+              <span>123 Pet Avenue, City, Country</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
+              <span>+1 (555) 123-4567</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
+              <span>hello@fourpaws.org</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
+              <span>Mon-Sat: 9am - 5pm</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+          <p class="text-gray-400 mb-4">
+            Subscribe to get updates on pets available for adoption and upcoming
+            events.
+          </p>
+          <form class="flex">
+            <input
+              type="email"
+              placeholder="Your email"
+              class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800"
+            />
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition"
+            >
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 FourPaws Pet Adoption Center. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  async function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Fields",
+        text: "Please fill out all fields.",
+        confirmButtonColor: "#1D4ED8"
+      });
+      return;
+    }
+
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Redirecting...",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: data.message || "Something went wrong.",
+        confirmButtonColor: "#1D4ED8",
+      });
+    }
+  }
+  </script>
 </html>
