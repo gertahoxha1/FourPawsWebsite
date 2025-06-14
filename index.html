@@ -7,7 +7,7 @@
     <title>FourPaws - Pet Adoption Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
        <script>
         tailwind.config = {
             theme: {
@@ -20,18 +20,14 @@
                         dark: '#1E40AF'
                     },
                     fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
+                        'sans': ['Poppins', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-
+    
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),;
             background-size: cover;
@@ -55,25 +51,25 @@
     </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
     <!-- Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-paw text-blue-500 text-3xl"></i>
-                <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
-            </div>
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+      </div>
 
             <input type="checkbox" id="menu-toggle" class="hidden">
             <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
                 <i class="fas fa-bars"></i>
             </label>
 
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a>
-                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition">About Us</a>
-                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Adopt</a>
-                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a>
+            <nav class="hidden md:flex space-x-8 ">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
                 <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
             </nav>
         </div>

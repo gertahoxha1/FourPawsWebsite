@@ -19,9 +19,9 @@
               light: "#EFF6FF",
               dark: "#1E40AF",
             },
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-            },
+             fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    }
           },
         },
       };
@@ -59,54 +59,25 @@
   <body>
     <!-- Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-2">
-          <i class="fas fa-paw text-blue-500 text-3xl"></i>
-          <a
-            href="index.html"
-            class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition"
-            >FourPaws</a
-          >
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label
-          for="menu-toggle"
-          class="md:hidden cursor-pointer text-gray-700 text-2xl"
-        >
-          <i class="fas fa-bars"></i>
-        </label>
-
-        <nav class="hidden md:flex space-x-8">
-          <a
-            href="index.html"
-            class="text-gray-700 hover:text-blue-500 font-medium transition"
-            >Home</a
-          >
-          <a
-            href="about.html"
-            class="text-gray-700 hover:text-blue-500 font-medium transition"
-            >About Us</a
-          >
-          <a
-            href="adopt.html"
-            class="text-gray-700 hover:text-blue-500 font-medium transition"
-            >Adopt</a
-          >
-          <a
-            href="contact.html"
-            class="text-gray-700 hover:text-blue-500 font-medium transition"
-            >Contact</a
-          >
-          <a
-            href="login.html"
-            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-            >Login</a
-          >
-        </nav>
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
       </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="hidden md:flex space-x-8 ">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
+                <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
+            </nav>
+        </div>
 
       <!-- Mobile Menu -->
       <div
@@ -142,16 +113,10 @@
     </header>
 
     <!-- Main Content -->
-    <main
-      class="container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center"
-    >
+    <main class="container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center">
       <!-- Image Section -->
       <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 flex justify-center">
-        <img
-          src="https://t3.ftcdn.net/jpg/07/70/78/24/360_F_770782457_vWGitKp7k9nzaRRXMxCvNFQN28cPpuTu.jpg"
-          alt="Happy dog"
-          class="rounded-xl shadow-xl w-full max-w-lg object-cover h-96 md:h-auto transition duration-500 hover:scale-105"
-        />
+        <img  src="https://t3.ftcdn.net/jpg/07/70/78/24/360_F_770782457_vWGitKp7k9nzaRRXMxCvNFQN28cPpuTu.jpg" alt="Happy dog" class="rounded-xl shadow-xl w-full max-w-lg object-cover h-96 md:h-auto transition duration-500 hover:scale-105" />
       </div>
 
       <!-- Login Form -->
@@ -225,8 +190,7 @@
             <a
               href="signup.html"
               class="text-blue-600 font-medium hover:text-blue-800 transition"
-              >Sign up</a
-            >
+              >Sign up</a >
           </p>
         </div>
       </div>
@@ -234,6 +198,7 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
+  
   <footer class="bg-gray-800 text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopt Lily - FourPaws</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <linkrel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#1e40af',
+            cream: '#fef3c7',
+            lightblue: '#dbeafe',
+            sand: '#fef9c3'
+          },
+          fontFamily: {
+            'sans': ['Poppins', 'sans-serif'],
+            'display': ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-lightblue font-sans">
+  <!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+      </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="hidden md:flex space-x-8 ">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
+                <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
+            </nav>
+        </div>
+  </header>
+
+  <!-- Adoption Application Page -->
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+      <h2 class="text-3xl font-display text-center text-secondary mb-8">Adoption Application for Lily</h2>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Full Name</label>
+          <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required> 
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Email Address</label>
+          <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary required">
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Phone Number</label>
+          <input type="tel" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary required">
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Address</label>
+          <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary required">
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Do you own or rent your home?</label>
+          <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="">Select</option>
+            <option value="own">Own</option>
+            <option value="rent">Rent</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Do you have a fenced yard?</label>
+          <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Other pets in the home?</label>
+          <textarea rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="List any other animals in your household."></textarea>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Home Environment</label>
+          <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Describe your home (yard, apartment, kids, other pets, etc.)"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Why do you want to adopt Lily?</label>
+          <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tell us why you chose Lily and what makes you a good fit."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+          Submit Application
+        </button>
+      </form>
+    </div>
+  </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+<!-- Footer -->
+     <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">FourPaws</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Providing loving homes for pets in need since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-blue-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-blue-500 transition">About Us</a></li>
+                        <li><a href="adopt.html" class="text-gray-400 hover:text-blue-500 transition">Adopt a Pet</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-500 transition">Contact</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-blue-500 transition">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>123 Pet Avenue, City, Country</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
+                            <span>hello@fourpaws.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
+                            <span>Mon-Sat: 9am - 5pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on pets available for adoption and upcoming events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 FourPaws Pet Adoption Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent page reload
+    Swal.fire({
+      icon: 'success',
+      title: 'Application Submitted!',
+      text: 'Thank you for applying to adopt Lily. We’ll review your information and get back to you soon!',
+      confirmButtonColor: '#3b82f6',
+      confirmButtonText: 'OK'
+    });
+    this.reset(); // optional: reset form after submission
+  });
+</script>
+
+
+</html>

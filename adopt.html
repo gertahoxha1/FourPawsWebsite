@@ -19,8 +19,8 @@
                         light: '#EFF6FF',
                         dark: '#1E40AF'
                     },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
+                     fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
                     }
                 }
             }
@@ -43,23 +43,23 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+   <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-paw text-blue-500 text-3xl"></i>
-                <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
-            </div>
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+      </div>
 
             <input type="checkbox" id="menu-toggle" class="hidden">
             <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
                 <i class="fas fa-bars"></i>
             </label>
 
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Home</a>
-                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition">About Us</a>
-                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Adopt</a>
-                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition">Contact</a>
+            <nav class="hidden md:flex space-x-8 ">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
                 <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
             </nav>
         </div>
@@ -73,7 +73,6 @@
             <a href="login.html" class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</a>
         </div>
     </header>
-<!-- Hero Section -->
     <!-- Hero Section -->
     <div class="relative bg-gradient-to-r from-blue-600 to-purple-400 text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
@@ -86,10 +85,10 @@
             </h1>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">Give a homeless pet the love and care they deserve in your forever home</p>
             <div class="space-x-4">
-                <a href="#available-pets" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold shadow-lg transition duration-300">
+                <a href="#available-pets" class="inline-block bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-bold shadow-lg transition duration-300">
                     Adopt Now
                 </a>
-                <a href="#" class="inline-block border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full font-semibold transition duration-300">
+                <a href="#" class="inline-block border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full font-bold transition duration-300">
                     Learn More
                 </a>
             </div>
@@ -126,7 +125,7 @@
                             <span><span class="font-medium">Breed:</span> Black Labrador</span>
                         </div>
                     </div>
-                    <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</button>
+                    <a href="lily.html" class="mt-4 w-full block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Adopt Me</a>
                 </div>
             </div>
             
@@ -285,7 +284,8 @@
         </div>
     </section>
        
-</body>
+</body>\
+    <!-- Footer -->
  <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
