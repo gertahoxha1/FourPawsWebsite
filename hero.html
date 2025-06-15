@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FourPaws - Pet Adoption Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+      <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                        cream: '#fef3c7',
+                        lightblue: '#dbeafe',
+                        sand: '#fef9c3'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+
+    </script>
+ </script>
+    <style type="text/css">
+        .adopt-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .adopt-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .pet-section {
+            background: linear-gradient(to bottom, #ffffff 0%, #dbeafe 100%);
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+        .photo-gallery img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.03);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+      </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="hidden md:flex space-x-8 ">
+                <a href="index.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">About Us</a>
+                <a href="adopt.html" class="text-gray-700 hover:text-blue-500 font-medium transition  mt-2">Adopt</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
+                <a href="login.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 pt-2 pb-4" id="mobile-menu">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
+            <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-500">About Us</a>
+            <a href="adopt.html" class="block py-2 text-gray-700 hover:text-blue-500">Adopt</a>
+            <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-500">Contact</a>
+            <a href="login.html" class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-lightblue to-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex justify-between items-center">
+                <div class="md:w-1/2 md:pr-10">
+                    <h1 class="text-5xl font-display text-secondary font-bold mb-4">Meet <span class="text-primary">Hero</span></h1>
+                    <p class="text-gray-700 text-xl mb-6">A playful, devoted 2-year-old Golden Retriever ready to light up your life</p>
+                    <p class="text-gray-600 mb-8">Hero is sunshine wrapped in golden fur! This energetic two-year-old loves bounding through the yard, chasing tennis balls, and greeting everyone with his trademark "wag and grin". Hero is smart and already knows basic commands—he’s just waiting for his forever family to teach him new tricks and join him on all kinds of adventures. With a heart as big as his smile, Hero promises endless loyalty, laughter, and love. Is your home ready for a Hero?</p>
+                    <div class="flex space-x-4">
+                        <a href="adoptforma.html" class="adopt-button bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg inline-block text-center">Adopt Hero</a>
+                                                                                                                                            
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="rounded-2xl overflow-hidden shadow-xl transform rotate-1">
+                        <img src="/pics/hero.jpg" 
+                             alt="Hero the Golden Retriever"
+                             class="w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="stats-grid grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center p-6 border border-gray-200 rounded-xl">
+                    <i class="fas fa-birthday-cake text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Age</h3>
+                    <p class="text-gray-600">2 Years Old</p>
+                </div>
+                <div class="text-center p-6 border border-gray-200 rounded-xl">
+                    <i class="fas fa-venus text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Gender</h3>
+                    <p class="text-gray-600">Male</p>
+                </div>
+                <div class="text-center p-6 border border-gray-200 rounded-xl">
+                    <i class="fas fa-paw text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Breed</h3>
+                    <p class="text-gray-600">Golden Retriever</p>
+                </div>
+                <div class="text-center p-6 border border-gray-200 rounded-xl">
+                    <i class="fas fa-weight text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Size</h3>
+                    <p class="text-gray-600">Medium (66 lbs)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-16 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-display text-center text-secondary mb-12">Hero's Story</h2>
+            <div class="md:flex gap-12">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary mb-4">From Rescue to Recovery</h3>
+                        <p class="text-gray-700 mb-4">
+                            Hero was discovered abandoned beside a freeway, trembling and hungry. A kind passerby scooped him up and brought him straight to our shelter, where we learned he’d never had a proper meal in weeks and was riddled with anxiety.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                         Over the past two months, Hero has blossomed into the confident, affectionate companion he was born to be. With a balanced diet and daily enrichment, he’s filled out into a healthy two-year-old with a glossy golden coat.
+                        </p>
+                        <p class="text-gray-700 mb-6">
+                        Hero is up-to-date on all vaccinations and also microchipped. His vet check was flawless, and his cheerful “hello” wiggle is now legendary among staff. He’s eagerly awaiting a family who loves long walks, splashy lake days, and cozy evenings on the couch.
+                        </p>
+                        <div class="flex space-x-4">
+                            <span class="bg-blue-100 text-primary px-4 py-1 rounded-full text-sm">Fully Vaccinated</span>
+    
+                            <span class="bg-blue-100 text-primary px-4 py-1 rounded-full text-sm">Microchipped</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Perfect Companion</h3>
+                        <p class="text-gray-700 mb-4">
+                            Hero is the quintessential Golden Retriever – loyal, exuberant, and endlessly affectionate. He enjoys:
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Chasing tennis balls and frisbees in the yard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Splashing through shallow streams and puddles</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Learning new tricks (he lives for training treats!)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Greeting everyone he meets with a big, happy grin</span>
+                            </li>
+                        </ul>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-yellow-600"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                       Hero would thrive in an active household without small pets—his high prey drive means he may see cats or small animals as playthings. He’s great with other dogs after proper, gradual introductions and absolutely adores children (too much sometimes!), so a family that can match his energy and help him settle in is ideal.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-display text-center text-secondary mb-4">Hero's Photo Gallery</h2>
+            <p class="text-center text-gray-600 mb-12">See Hero in her daily life at the shelter</p>
+            
+            <div class="photo-gallery">
+                <div class="row-span-1">
+                    <img src="/pics/hero1.jpg">
+                </div>
+                <div>
+                    <img src="/pics/hero2.jpg">
+                </div>
+                <div class="row-span-1">
+                    <img src="/pics/hero3.jpg">
+                </div>
+                <div class="row-span-0">
+                    <img src="/pics/hero4.jpg">
+                </div>
+                <div>
+                    <img src="/pics/hero5.jpg">
+                </div>
+                <div>
+                    <img src="/pics/hero6.jpg">
+                </div>
+                <div class="row-span-1">
+                    <img src="/pics/hero7.jpg">
+                </div>
+                <div>
+                    <img src="/pics/hero8.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Process -->
+    <section class="py-16 bg-primary bg-opacity-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-display text-center text-secondary mb-4">Ready to Adopt Hero?</h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Our adoption process is simple and designed to ensure Hero finds the perfect forever home</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Apply</h3>
+                    <p class="text-gray-600">Fill out our online adoption application. This helps us understand your home environment and lifestyle.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Meet Hero</h3>
+                    <p class="text-gray-600">Schedule a visit to spend time with Hero and see if you're the perfect match for each other.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-6">
+                        <span class="text-white text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Take Home</h3>
+                    <p class="text-gray-600">Complete the adoption and bring Hero to her new forever home! We provide all necessary support.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+             <a href="adoptforma.html" class="adopt-button bg-secondary hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg inline-block text-center">Start Adoption Process</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">FourPaws</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Providing loving homes for pets in need since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-blue-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-blue-500 transition">About Us</a></li>
+                        <li><a href="adopt.html" class="text-gray-400 hover:text-blue-500 transition">Adopt a Pet</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-500 transition">Contact</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-blue-500 transition">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>123 Pet Avenue, City, Country</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
+                            <span>hello@fourpaws.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
+                            <span>Mon-Sat: 9am - 5pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on pets available for adoption and upcoming events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 FourPaws Pet Adoption Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ </body>
+</html>
