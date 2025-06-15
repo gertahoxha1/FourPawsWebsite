@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <linkrel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
         <script>
         tailwind.config = {
             theme: {
@@ -88,7 +88,7 @@
                                 Four paws, Inc.<br>
                                 "Rr. Mulla Idrizi" nr.50<br>
                                 Gjilan, Kosova 60000<br><br>
-                                Phone: (04) 123 4567<br>
+                                Phone: (044) 123 4567<br>
                                 Email: info@fourpaws.com
                             </p>
                         </div>
@@ -202,10 +202,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-
-
 <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -277,35 +273,50 @@
             </div>
         </div>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
+    document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;  // nothing to do on pages without the form
 
-  if (!name || !email || !message) {
-    Swal.fire({
-      icon: "warning",
-      title: "Missing fields",
-      text: "Please fill out all required fields.",
-      confirmButtonColor: "#1D4ED8"
-    });
-    return;
-  }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  // Simulate success (replace with real API later)
-  Swal.fire({
-    icon: "success",
-    title: "Message Sent!",
-    text: "Thank you for contacting FourPaws. We'll get back to you soon.",
-    confirmButtonColor: "#1D4ED8"
+    const name    = document.getElementById("name").value.trim();
+    const email   = document.getElementById("email").value.trim();
+    const phone   = document.getElementById("phone").value.trim();
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !subject || !message) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing fields",
+        text: "Please fill out all required fields.",
+        confirmButtonColor: "#1D4ED8",
+      });
+      return;
+    }
+
+    try {
+      const res = await fetch("/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, subject, message }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Submission failed");
+
+      Swal.fire({ icon: "success", title: data.message });
+      form.reset();
+    } catch (err) {
+      Swal.fire({ icon: "error", title: err.message });
+    }
   });
-
-  // Optionally reset form
-  document.getElementById("contactForm").reset();
 });
-</script>
 
+</script>
+</body>
 </html>
