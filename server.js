@@ -33,8 +33,7 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema);
 
-// Login Route
-//Post
+//Post for signup
 app.post("/signup", async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
@@ -59,7 +58,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-//Get
+//post for login
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -83,23 +82,16 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//Delete
-app.delete("/user/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const deletedUser = await User.findByIdAndDelete(id);
-        if (!deletedUser) {
-            return res.status(404).json({ message: "User not found" });
-        }
-
-        res.json({ message: "User deleted successfully" });
-    } catch (error) {
-        console.error("Delete error:", error);
-        res.status(500).json({ message: "Internal Server Error" });
-    }
+//get
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+    res.json(users);
+  } catch (err) {
+    console.error("Fetch users error:", err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
-
 
 //Update
 app.put("/user/:id", async (req, res) => {
@@ -125,56 +117,6 @@ app.put("/user/:id", async (req, res) => {
         console.error("Update error:", error);
         res.status(500).json({ message: "Internal Server Error" });
     }
-});
-
-
-// Sign-Up Route
-//Post
-app.post("/signup", async (req, res) => {
-    try {
-        const { firstName, lastName, email, password} = req.body;
-
-        // Check if user exists
-        const userExists = await User.findOne({ email });
-        if (userExists) {
-            return res.status(400).json({ message: "User already exists" });
-        }
-
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ firstName, lastName, email, password:hashedPassword});
-
-        await user.save();
-        res.status(201).json({ message: "User registered successfully" });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Internal Server Error" });
-    }
-});
-
-//Update
-app.put("/users/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { firstName, lastName, email, password } = req.body;
-
-    const updates = {};
-    if (firstName) updates.firstName = firstName;
-    if (lastName) updates.lastName = lastName;
-    if (email) updates.email = email;
-    if (password) {
-      updates.password = await bcrypt.hash(password, 10);
-    }
-
-    const updatedUser = await User.findByIdAndUpdate(id, updates, { new: true });
-    if (!updatedUser)
-      return res.status(404).json({ message: "User not found" });
-
-    res.json({ message: "User updated", user: updatedUser });
-  } catch (err) {
-    console.error("Update error:", err);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
 });
 
 //Delete
