@@ -133,5 +133,55 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+////////CONTACT FORM HANDLER////////
+
+const messages = []; 
+app.use(express.urlencoded({ extended: true }));
+
+
+const contactSchema = new mongoose.Schema({
+  name:       { type: String, required: true },
+  email:      { type: String, required: true },
+  phone:      String,
+  subject:    String,
+  message:    { type: String, required: true },
+  receivedAt: { type: Date,   default: Date.now },
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+
+//POST
+app.post('/contact', async (req, res) => {
+  const { name, email, phone, subject, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res
+      .status(400)
+      .json({ success: false, message: 'Name, email and message are required.' });
+  }
+
+  try {
+    const newMsg = await Contact.create({ name, email, phone, subject, message });
+    res.status(201).json({
+      success: true,
+      message: 'Your message has been received!',
+      data: newMsg,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error.' });
+  }
+});
+
+//GET
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
+
+//mesazhet
+app.get('/messages', (req, res) => {
+  res.json({ success: true, data: messages });
+});
+
 // Start Server
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));

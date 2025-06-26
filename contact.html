@@ -139,7 +139,7 @@
             <div class="w-full lg:w-1/2 bg-white rounded-xl shadow-xl p-6">
                 <h3 class="text-3xl font-bold text-blue-700 mb-6">Send Us a Message</h3>
                 
-                <form id="contactForm" class="space-y-6">
+                <form id="contactForm" class="space-y-6"  action="/contact" method="POST">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                         <div class="relative">
@@ -276,47 +276,45 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  if (!form) return;  // nothing to do on pages without the form
+  document.addEventListener("DOMContentLoaded", () => {
+     const form = document.getElementById("contactForm");
+     if (!form) return;
+     form.addEventListener("submit", async e => {
+     e.preventDefault();
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+     const formData = new FormData(form);
+     const payload = {
+     name:    formData.get("name"),
+     email:   formData.get("email"),
+     phone:   formData.get("phone"),
+     subject: formData.get("subject"),
+     message: formData.get("message"),
+    };
 
-    const name    = document.getElementById("name").value.trim();
-    const email   = document.getElementById("email").value.trim();
-    const phone   = document.getElementById("phone").value.trim();
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value.trim();
+  console.log("sending payload:", payload);
 
-    if (!name || !email || !subject || !message) {
-      Swal.fire({
-        icon: "warning",
-        title: "Missing fields",
-        text: "Please fill out all required fields.",
-        confirmButtonColor: "#1D4ED8",
-      });
-      return;
+  try {
+    const res = await fetch("/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      // if it’s not JSON you’ll at least see the raw text
+      const text = await res.text();
+      throw new Error(`Error ${res.status}: ${text}`);
     }
 
-    try {
-      const res = await fetch("/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, subject, message }),
-      });
-      const data = await res.json();
+    const data = await res.json();
+    await Swal.fire({ icon: "success", title: data.message });
+    form.reset();
 
-      if (!res.ok) throw new Error(data.message || "Submission failed");
-
-      Swal.fire({ icon: "success", title: data.message });
-      form.reset();
-    } catch (err) {
-      Swal.fire({ icon: "error", title: err.message });
-    }
-  });
+  } catch (err) {
+    Swal.fire({ icon: "error", title: err.message });
+  }
 });
-
+});
 </script>
 </body>
 </html>
