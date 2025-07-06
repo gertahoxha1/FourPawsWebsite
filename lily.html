@@ -113,13 +113,13 @@
                     <p class="text-gray-700 text-xl mb-6">A gentle, loving 4-year-old Black Labrador looking for her forever home</p>
                     <p class="text-gray-600 mb-8">Lily is a pure ray of sunshine! With her soulful eyes and gentle demeanor, she's won the hearts of everyone at the shelter. Lily loves nothing more than being by your side, whether it's for playtime or cuddle time.</p>
                     <div class="flex space-x-4">
-                        <a href="adoptforma.html" class="adopt-button bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg inline-block text-center">Adopt Lily</a>
+                        <a href="adoptforma.html?dogId=${dog._id}" class="adopt-button bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg inline-block text-center">Adopt Lily</a>
                                                                                                                                             
                     </div>
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0">
                     <div class="rounded-2xl overflow-hidden shadow-xl transform rotate-1">
-                        <img src="https://cdn.britannica.com/82/232782-050-8062ACFA/Black-labrador-retriever-dog.jpg" 
+                        <img src="/pics/images/lily.jpg" 
                              alt="Lily the Black Labrador"
                              class="w-full h-96 object-cover">
                     </div>
@@ -230,28 +230,28 @@
             
             <div class="photo-gallery">
                 <div class="row-span-1">
-                    <img src="/pics/lily1.jpg">
+                    <img src="/pics/images/lily1.jpg">
                 </div>
                 <div>
-                    <img src="/pics/lily2.jpg">
+                    <img src="/pics/images/lily2.jpg">
                 </div>
                 <div class="row-span-1">
-                    <img src="/pics/lily3.jpg">
+                    <img src="/pics/images/lily3.jpg">
                 </div>
                 <div class="row-span-0">
-                    <img src="/pics/lily4.jpg">
+                    <img src="/pics/images/lily4.jpg">
                 </div>
                 <div>
-                    <img src="/pics/lily5.jpg">
+                    <img src="/pics/images/lily5.jpg">
                 </div>
                 <div>
-                    <img src="/pics/lily6.jpg">
+                    <img src="/pics/images/lily6.jpg">
                 </div>
                 <div class="row-span-2">
-                    <img src="/pics/lily7.jpg">
+                    <img src="/pics/images/lily7.jpg">
                 </div>
                 <div>
-                    <img src="/pics/lily8.jpg">
+                    <img src="/pics/images/lily8.jpg">
                 </div>
             </div>
         </div>
@@ -290,7 +290,7 @@
             </div>
             
             <div class="text-center mt-12">
-             <a href="adoptforma.html" class="adopt-button bg-secondary hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg inline-block text-center">Start Adoption Process</a>
+             <a href="adoptforma.html?dogId=${dog._id}" class="adopt-button bg-secondary hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg inline-block text-center">Start Adoption Process</a>
 
             </div>
         </div>
@@ -369,4 +369,33 @@
         </div>
     </footer>
  </body>
+
+ <!-- <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(location.search);
+      const dogId  = params.get('dogId');
+      if (!dogId) return alert('No dog selected.');
+
+      // Fetch that one dog
+      const res = await fetch(`/api/dogs/${dogId}`);
+      if (!res.ok) return alert('Dog not found.');
+      const dog = await res.json();
+
+      // Populate UI
+      document.getElementById('dog-photo').src      = dog.photoUrl;
+      document.getElementById('dog-photo').alt      = dog.name;
+      document.getElementById('dog-name').textContent   = dog.name;
+      document.getElementById('dog-age').textContent    = dog.age;
+      document.getElementById('dog-gender').textContent = dog.gender;
+      document.getElementById('dog-breed').textContent  = dog.breed;
+
+      // Show the section
+      document.getElementById('dog-info').classList.remove('hidden');
+
+      // Wire the “Apply to Adopt” link to the form page
+      document
+        .getElementById('apply-link')
+        .setAttribute('href', `adoptforma.html?dogId=${dogId}`);
+    });
+ </script> -->
 </html>

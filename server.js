@@ -9,6 +9,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+const { Schema } = mongoose; 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -99,7 +100,6 @@ app.put("/user/:id", async (req, res) => {
         const { id } = req.params;
         const { email, password } = req.body;
 
-        // Prepare update object
         const updates = {};
         if (email) updates.email = email;
         if (password) {
@@ -183,5 +183,223 @@ app.get('/messages', (req, res) => {
   res.json({ success: true, data: messages });
 });
 
+/// DOGS SCHEMA ////
+
+const DogSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  subheading: {
+    type: String,
+    trim: true
+  },
+  description: {
+    type: String,
+    trim: true
+  },
+  photoUrl: {
+    type: String,
+    required: true,
+    validate: {
+      validator: v => /^https?:\/\//.test(v),
+      message: props => `${props.value} is not a valid URL!`
+    }
+  },
+  age: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  gender: {
+    type: String,
+    required: true,
+    enum: ['Male', 'Female']
+  },
+  breed: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  size: {
+    type: String,
+    trim: true
+  },
+
+  // Story section
+  storySection: {
+    story: {
+      title:      { type: String, trim: true },
+      header:     { type: String, trim: true },
+      paragraphs: { type: [String], default: [] },
+      badges:     { type: [String], default: [] }
+    },
+    perfectCompanion: {
+      title:        { type: String, trim: true },
+      description:  { type: String, trim: true },
+      features:     { type: [String], default: [] },
+      restrictions: { type: String, trim: true }
+    }
+  },
+
+  // Photo gallery section
+  photoGallery: {
+    title:    { type: String, trim: true },
+    subtitle: { type: String, trim: true },
+    images:   {
+      type: [String],
+      default: [],
+      validate: {
+        validator: arr => arr.every(url => /^https?:\/\//.test(url)),
+        message: 'Each gallery image must be a valid URL'
+      }
+    }
+  },
+
+  // Adoption process section
+  adoptionProcess: {
+    title:    { type: String, trim: true },
+    subtitle: { type: String, trim: true },
+    steps: [{
+      number:      { type: Number, required: true, min: 1 },
+      title:       { type: String, required: true, trim: true },
+      description: { type: String, required: true, trim: true }
+    }]
+  }
+
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model('Dog', DogSchema);
+
+
+module.exports = mongoose.model('Dog', DogSchema);
+
+
+const Dog = mongoose.model('Dog', DogSchema);
+
+//post for dogs
+app.post('/api/dogs', async (req, res) => {
+  const {
+    name,
+    age,
+    gender,
+    breed,
+    photoUrl,
+    description,    // optional
+    subheading,     // optional
+    size,           // optional
+    story,          // should be an object { title, parts: [ ... ] }
+    restrictions,   // optional
+    features,       // optional array
+    gallery         // optional array
+  } = req.body;
+
+  // minimal required validation
+  if (!name || age == null || !gender || !breed || !photoUrl) {
+    return res.status(400).json({ error: 'Missing required fields: name, age, gender, breed, photoUrl' });
+  }
+
+  try {
+    const dog = new Dog({
+      name,
+      age,
+      gender,
+      breed,
+      photoUrl,
+      description,
+      subheading,
+      size,
+      story,
+      restrictions,
+      features,
+      gallery
+    });
+
+    await dog.save();
+    return res
+      .status(201)
+      .location(`/api/dogs/${dog._id}`)
+      .json(dog);
+  } catch (err) {
+    console.error('Error creating dog:', err);
+    // send back mongoose validation message if there is one
+    return res.status(400).json({ error: err.message });
+  }
+});
+
+
+//get for dogs
+app.get('/api/dogs', async (req, res) => {
+  try {
+    const dogs = await Dog.find().lean();
+    res.json(dogs);
+  } catch (err) {
+    console.error('Error in GET /api/dogs:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+//me id
+app.get('/api/dogs/:id', async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id).lean();
+    if (!dog) {
+      return res.status(404).json({ error: 'Dog not found' });
+    }
+    res.json(dog);
+  } catch (err) {
+    if (err.name === 'CastError') {
+      return res.status(400).json({ error: 'Invalid dog ID' });
+    }
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
+////ADOPTION FORM SCHEMA////
+
+const AdoptionSchema = new mongoose.Schema({
+  dogId:         { type: Schema.Types.ObjectId, ref: 'Dog', required: true },
+  name: { type: String, required: true },
+  email:         { type: String, required: true },
+  phone:         { type: String, required: true },
+  address:       { type: String, required: true },
+  homeOwnership: { type: String, enum: ['own','rent'] },
+  fencedYard:    { type: String, enum: ['yes','no'] },
+  otherPets:     { type: String },
+  environment:   { type: String },
+  whyAdopt:      { type: String }
+}, { timestamps: true });
+
+
+const Adoption = mongoose.model('Adoption', AdoptionSchema);
+
+//post for adoptions
+app.post('/api/adoptions', async (req, res) => {
+  try {
+    const application = new Adoption(req.body);
+    await application.save();
+    res.status(201).json({ message: 'Application received', application });
+  } catch (err) {
+    console.error('Adoption save error:', err);
+    res.status(500).json({ error: 'Failed to submit application' });
+  }
+});
+
+//get for adoptions
+app.get('/api/dogs/:id', async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id).lean();
+    if (!dog) return res.status(404).json({ error: 'Dog not found' });
+    res.json(dog);
+  } catch (err) {
+    console.error('Error fetching dog:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 // Start Server
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
