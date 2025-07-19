@@ -185,6 +185,7 @@ app.get('/messages', (req, res) => {
 
 /// DOGS SCHEMA ////
 
+
 const DogSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -226,7 +227,7 @@ const DogSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-
+  
   // Story section
   storySection: {
     story: {
@@ -242,7 +243,7 @@ const DogSchema = new mongoose.Schema({
       restrictions: { type: String, trim: true }
     }
   },
-
+  
   // Photo gallery section
   photoGallery: {
     title:    { type: String, trim: true },
@@ -256,7 +257,7 @@ const DogSchema = new mongoose.Schema({
       }
     }
   },
-
+  
   // Adoption process section
   adoptionProcess: {
     title:    { type: String, trim: true },
@@ -267,16 +268,10 @@ const DogSchema = new mongoose.Schema({
       description: { type: String, required: true, trim: true }
     }]
   }
-
+  
 }, {
   timestamps: true
 });
-
-module.exports = mongoose.model('Dog', DogSchema);
-
-
-module.exports = mongoose.model('Dog', DogSchema);
-
 
 const Dog = mongoose.model('Dog', DogSchema);
 
@@ -284,51 +279,52 @@ const Dog = mongoose.model('Dog', DogSchema);
 app.post('/api/dogs', async (req, res) => {
   const {
     name,
+    subheading,
+    description,
+    photoUrl,
     age,
     gender,
     breed,
-    photoUrl,
-    description,    // optional
-    subheading,     // optional
-    size,           // optional
-    story,          // should be an object { title, parts: [ ... ] }
-    restrictions,   // optional
-    features,       // optional array
-    gallery         // optional array
+    size,
+
+    // grab the whole nested objects
+    storySection,
+    photoGallery,
+    adoptionProcess
   } = req.body;
 
-  // minimal required validation
+  // basic required‐field check
   if (!name || age == null || !gender || !breed || !photoUrl) {
-    return res.status(400).json({ error: 'Missing required fields: name, age, gender, breed, photoUrl' });
+    return res
+      .status(400)
+      .json({ error: 'Missing required fields: name, age, gender, breed, photoUrl' });
   }
 
   try {
     const dog = new Dog({
       name,
+      subheading,
+      description,
+      photoUrl,
       age,
       gender,
       breed,
-      photoUrl,
-      description,
-      subheading,
       size,
-      story,
-      restrictions,
-      features,
-      gallery
+
+      // now we write the nested sections too:
+      storySection,
+      photoGallery,
+      adoptionProcess
     });
 
     await dog.save();
-    return res
-      .status(201)
-      .location(`/api/dogs/${dog._id}`)
-      .json(dog);
+    return res.status(201).json(dog);
   } catch (err) {
     console.error('Error creating dog:', err);
-    // send back mongoose validation message if there is one
     return res.status(400).json({ error: err.message });
   }
 });
+
 
 
 //get for dogs

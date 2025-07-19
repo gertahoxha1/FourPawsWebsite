@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FourPaws - Pet Adoption Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        secondary: '#93C5FD',
+                        accent: '#3B82F6',
+                        light: '#EFF6FF',
+                        dark: '#1E40AF'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+    
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),;
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+        <i class="fas fa-paw text-blue-500 text-3xl"></i>
+        <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-500 transition">FourPaws</a>
+      </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" class="md:hidden cursor-pointer text-gray-700 text-2xl">
+                <i class="fas fa-bars"></i>
+            </label>
+
+         <nav class="hidden md:flex space-x-8" id="navbar">
+  <a href="index.html" class="nav-link text-gray-700 hover:text-blue-500 font-medium transition mt-2">Home</a>
+  <a href="about.html" class="nav-link text-gray-700 hover:text-blue-500 font-medium transition mt-2">About Us</a>
+  <a href="adopt.html" class="nav-link text-gray-700 hover:text-blue-500 font-medium transition mt-2">Adopt</a>
+  <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-500 font-medium transition mt-2">Contact</a>
+  <a href="login.html" class="nav-link bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Login</a>
+</nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 pt-2 pb-4" id="mobile-menu">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
+            <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-500">About Us</a>
+            <a href="adopt.html" class="block py-2 text-gray-700 hover:text-blue-500">Adopt</a>
+            <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-500">Contact</a>
+            <a href="login.html" class="block w-full text-center mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center text-white relative overflow-hidden"
+         style="background-image: url('https://i.pinimg.com/736x/a5/44/73/a544738d6f247648a348dd13e2525de5.jpg');">
+
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    You can't buy love, <br>but you can rescue it
+                </h1>
+                <p class="text-lg md:text-xl mb-8">Find your perfect furry companion and give them a second chance at life.</p>
+                <a href="adopt.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                    Adopt Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Featured Pets -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Paws</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Meet some of our adorable friends who just got their forever homes</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pet 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl ">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/pics/puppy2.jpg" alt="Dog" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Max</h3>
+                        <div class="flex items-center mt-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Golden Retriever</span>
+                            <span class="ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">2 years</span>
+                        </div>
+                        <p class="text-gray-600 mt-3">Friendly and energetic, Max loves long walks and playing fetch.</p>
+                        <button class="mt-4 w-full bg-blue-500 hover:bg-red-600 text-white py-2 rounded-lg transition">Adopted</button>
+                    </div>
+                </div>
+
+                <!-- Pet 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/pics/puppy4.jpg" alt="Dog" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Luna</h3>
+                        <div class="flex items-center mt-2">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Pitbull</span>
+                            <span class="ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">1.5 years</span>
+                        </div>
+                        <p class="text-gray-600 mt-3">Playful yet calm, Luna enjoys sunny spots and gentle pets.</p>
+                        <button class="mt-4 w-full bg-blue-500 hover:bg-red-600 text-white py-2 rounded-lg transition">Adopted</button>
+                    </div>
+                </div>
+
+                <!-- Pet 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="/pics/puppy3.jpg" alt="Puppy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Akira</h3>
+                        <div class="flex items-center mt-2">
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Bernese Mountain</span>
+                            <span class="ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">4 months</span>
+                        </div>
+                        <p class="text-gray-600 mt-3">Sweet and curious, Akira is looking for an active family.</p>
+                        <button class="mt-4 w-full bg-blue-500 hover:bg-red-600 text-white py-2 rounded-lg transition">Adopted</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="adopt.html" class="inline-block border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-3 px-8 rounded-full transition">
+                    View All Pets <i class="fas fa-paw ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://i.pinimg.com/736x/82/fd/88/82fd8874de7c9d2d9daba0d8ac5fed11.jpg" alt="Happy pets" class="rounded-xl shadow-lg float-animation">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+                    <p class="text-gray-600 mb-4">At FourPaws, we believe every pet deserves love, care, and a forever home. Our dedicated team works tirelessly to rescue, rehabilitate, and rehome animals in need.</p>
+                    <p class="text-gray-600 mb-6">Since our founding in 2010, we've found loving homes for over 5,000 pets and counting. Join us in our mission to make a difference in these precious lives.</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="bg-white p-4 rounded-lg shadow text-center">
+                            <div class="text-blue-500 text-3xl mb-2">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800">5,000+</h3>
+                            <p class="text-sm text-gray-600">Pets Adopted</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow text-center">
+                            <div class="text-blue-500 text-3xl mb-2">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800">200+</h3>
+                            <p class="text-sm text-gray-600">Volunteers</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow text-center">
+                            <div class="text-blue-500 text-3xl mb-2">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800">15</h3>
+                            <p class="text-sm text-gray-600">Shelters</p>
+                        </div>
+                    </div>
+                    <a href="about.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Happy Stories</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Hear from families who found their perfect match through FourPaws</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-5 -left-5 text-blue-500 text-5xl opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.pinimg.com/736x/82/60/b9/8260b9c2c3040c9b324bdffaa1ebf207.jpg" alt="Sarah J." class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Sarah J.</h4>
+                            <div class="flex text-blue-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Adopting Max from FourPaws was the best decision we ever made. The process was smooth and the staff were incredibly helpful. Max has brought so much joy to our family!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-5 -left-5 text-blue-500 text-5xl opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://t3.ftcdn.net/jpg/03/95/29/76/360_F_395297652_J7Bo5IVAkYo1LFzPjEhldbOPNstxYx4i.jpg" alt="Michael T." class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Michael T.</h4>
+                            <div class="flex text-blue-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"FourPaws made the adoption process so easy. Luna has been the perfect addition to our home. She's playful, affectionate, and gets along great with our kids."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-5 -left-5 text-blue-500 text-5xl opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://media.istockphoto.com/id/1377246853/photo/shot-of-a-mature-couple-together-in-their-garden.jpg?s=612x612&w=0&k=20&c=BkAdvrdlS8F0QyqamlyrJ-K5UYJjM7gEwtGdZX3sfz8=" alt="Linda & Robert" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Linda & Robert</h4>
+                            <div class="flex text-blue-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"After losing our senior dog, we weren't sure we were ready. The FourPaws team matched us with Akira, who has helped heal our hearts. Their after-adoption support is wonderful too."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Meet Your New Best Friend?</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8">Visit one of our shelters or browse our adoptable pets online to start your journey.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="adopt.html" class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                    Browse Pets <i class="fas fa-paw ml-2"></i>
+                </a>
+                <a href="contact.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-500 font-bold py-3 px-8 rounded-full transition transform hover:scale-105">
+                    Contact Us <i class="fas fa-envelope ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-paw text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">FourPaws</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Providing loving homes for pets in need since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-blue-500 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-blue-500 transition">About Us</a></li>
+                        <li><a href="adopt.html" class="text-gray-400 hover:text-blue-500 transition">Adopt a Pet</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-500 transition">Contact</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-blue-500 transition">Login</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>"Rr. Mulla Idrizi" nr.50, Gjilan, Kosova </span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-blue-500"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-blue-500"></i>
+                            <span>hello@fourpaws.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-blue-500"></i>
+                              Monday-Friday: 9:00 AM - 8:00 PM<br>
+                                Saturday: 8:00 AM - 11:00 PM<br>
+                                Sunday: By appointment only
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on pets available for adoption and upcoming events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 FourPaws Pet Adoption Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg hidden hover:bg-blue-600 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        const navLinks = document.querySelectorAll('#navbar .nav-link');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+        navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+    
+        if (linkPage === currentPage) {
+          // Tailwind "active" styles
+          link.classList.add('text-blue-600', 'font-bold', 'underline');
+        } else {
+          link.classList.remove('text-blue-600', 'font-bold', 'underline');
+        }
+    
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (this.checked) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('block');
+            } else {
+                mobileMenu.classList.remove('block');
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+  });
+    </script>
+
+</html>
